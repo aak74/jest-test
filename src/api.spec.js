@@ -1,13 +1,13 @@
 // const * = require("jest");
-const axios = require("axios");
-const MockAdapter = require("axios-mock-adapter");
+import axios from "axios";
+import AxiosAdapter from "axios-mock-adapter";
 
-const Api = require("./api");
+import Api from "./api";
 
 let context = {};
 beforeEach(() => {
   const client = axios.create();
-  context.mock = new MockAdapter(client);
+  context.mock = new AxiosAdapter(client);
   context.api = new Api({ client });
 });
 
@@ -15,7 +15,7 @@ test("Login captures token information", async () => {
   const { mock, api } = context;
   const LOGIN_REQUEST = {
     login: "foo",
-    password: "foo",
+    password: "foo1",
   };
   const LOGIN_RESPONSE = {
     token: "TOKEN",

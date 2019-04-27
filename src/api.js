@@ -1,6 +1,6 @@
-const axios = require("axios");
+import axios from "axios";
 
-module.exports = class Api {
+export default class Api {
   constructor(options = {}) {
     this.client = options.client || axios.create();
     this.token = options.token;
